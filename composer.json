@@ -1,0 +1,22 @@
+{
+    "name": "mstmvd/crud",
+    "description": "Laravel CRUD",
+    "authors": [
+        {
+            "name": "Mostafa Movahedi",
+            "email": "mstmvd@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "mstmvd\\crud\\": "src/"
+        }
+    }
+}
