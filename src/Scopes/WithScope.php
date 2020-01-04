@@ -1,5 +1,5 @@
 <?php
-namespace LaravelTools\Crud\Scopes;
+namespace LaravelUtils\Crud\Scopes;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

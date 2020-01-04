@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelTools\\Crud\\": "src/"
+            "LaravelUtils\\Crud\\": "src/"
         }
     }
 }
