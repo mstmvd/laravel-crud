@@ -1,12 +1,12 @@
 <?php
-namespace mstmvd\crud\Models;
+namespace LaravelTools\Crud\Models;
 
-use mstmvd\crud\Scopes\FilterScope;
-use mstmvd\crud\Scopes\LimitOffsetScope;
-use mstmvd\crud\Scopes\OrderScope;
-use mstmvd\crud\Scopes\WithScope;
+use LaravelTools\Crud\Scopes\FilterScope;
+use LaravelTools\Crud\Scopes\LimitOffsetScope;
+use LaravelTools\Crud\Scopes\OrderScope;
+use LaravelTools\Crud\Scopes\WithScope;
+use LaravelTools\Crud\Traits\ModelTableNameTrait;
 use Illuminate\Database\Eloquent\Model;
-use mstmvd\crud\Traits\ModelTableNameTrait;
 
 abstract class CrudModel extends Model
 {

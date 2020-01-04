@@ -1,5 +1,5 @@
 {
-    "name": "mstmvd/crud",
+    "name": "laravel-tools/crud",
     "description": "Laravel CRUD",
     "authors": [
         {
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "mstmvd\\crud\\": "src/"
+            "LaravelTools\\Crud\\": "src/"
         }
     }
 }

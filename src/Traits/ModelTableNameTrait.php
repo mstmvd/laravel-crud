@@ -1,5 +1,5 @@
 <?php
-namespace mstmvd\crud\Traits;
+namespace LaravelTools\Crud\Traits;
 
 trait ModelTableNameTrait
 {
