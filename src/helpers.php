@@ -2,19 +2,8 @@
 
 use Illuminate\Database\Eloquent\Builder;
 
-if (!function_exists('crud_response')) {
-    function crud_response($data = '', $status = 200, $message = '', array $headers = array(), $options = 0)
-    {
-        $msg = [
-            'message' => __($message),
-            'data' => $data
-        ];
-        return response()->json($msg, $status, $headers, $options);
-    }
-}
-
-if (!function_exists('crud_response')) {
-    function crud_response(Builder $entities, $status = 200, $message = '', array $headers = array(), $options = 0)
+if (!function_exists('crudResponse')) {
+    function crudResponse(Builder $entities, $status = 200, $message = '', array $headers = array(), $options = 0)
     {
         $params = request()->query();
         array_forget($params, 'page');
@@ -39,7 +28,7 @@ if (!function_exists('crud_response')) {
     }
 }
 
-if (!function_exists('quick_random')) {
+if (!function_exists('quickRandom')) {
 
     /**
      * <b>config schema</b><br/>
@@ -61,7 +50,7 @@ if (!function_exists('quick_random')) {
      * @param array $config
      * @return bool|string
      */
-    function quick_random($config = array())
+    function quickRandom($config = array())
     {
         $length = 16;
         $number = true;
