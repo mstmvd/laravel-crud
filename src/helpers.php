@@ -3,26 +3,30 @@
 use Illuminate\Database\Eloquent\Builder;
 
 if (!function_exists('crudResponse')) {
-    function crudResponse(Builder $entities, $status = 200, $message = '', array $headers = array(), $options = 0)
+    function crudResponse($data, $message = '', $status = 200, array $headers = array(), $options = 0)
     {
-        $params = request()->query();
-        array_forget($params, 'page');
+        if ($data instanceof Builder) {
+            $params = request()->query();
+            array_forget($params, 'page');
 
-        $usePaginate = (request()->has('paginate') && request('paginate')) != false;
-        $isCount = request()->has('count');
+            $usePaginate = (request()->has('paginate') && request('paginate')) != false;
+            $isCount = request()->has('count');
 
-        if ($usePaginate) {
-            $perPage = request()->has('per-page') ? request()->input('per-page') : null;
-            $data = $entities->paginate($perPage)->appends($params);
-        } elseif ($isCount){
-            $data = $entities->count();
+            if ($usePaginate) {
+                $perPage = request()->has('per-page') ? request()->input('per-page') : null;
+                $result = $data->paginate($perPage)->appends($params);
+            } elseif ($isCount){
+                $result = $data->count();
+            } else {
+                $result = $data->get();
+            }
         } else {
-            $data = $entities->get();
+            $result = $data;
         }
 
         $response = [
             'message' => __($message),
-            'data' => $data
+            'data' => $result
         ];
         return response()->json($response, $status, $headers, $options);
     }
