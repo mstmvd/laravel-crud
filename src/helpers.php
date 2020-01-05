@@ -3,7 +3,7 @@
 use Illuminate\Database\Eloquent\Builder;
 
 if (!function_exists('crudResponse')) {
-    function crudResponse($data, $message = '', $status = 200, array $headers = array(), $options = 0)
+    function crudResponse($data = null, $message = '', $status = 200, array $headers = array(), $options = 0)
     {
         if ($data instanceof Builder) {
             $params = request()->query();
