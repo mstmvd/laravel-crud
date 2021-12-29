@@ -5,6 +5,7 @@ use LaravelUtils\Crud\Scopes\FilterScope;
 use LaravelUtils\Crud\Scopes\LimitOffsetScope;
 use LaravelUtils\Crud\Scopes\OrderScope;
 use LaravelUtils\Crud\Scopes\WithScope;
+use LaravelUtils\Crud\Scopes\PaginateScope;
 use LaravelUtils\Crud\Traits\ModelTableNameTrait;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,5 +28,6 @@ abstract class CrudModel extends Model
         static::addGlobalScope(new OrderScope);
         static::addGlobalScope(new LimitOffsetScope());
         static::addGlobalScope(new WithScope());
+        static::addGlobalScope(new PaginateScope());
     }
 }

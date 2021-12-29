@@ -1,22 +1,14 @@
 <?php
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Arr;
 
 if (!function_exists('crudResponse')) {
     function crudResponse($data = null, $message = '', $status = 200, array $headers = array(), $options = 0)
     {
         if ($data instanceof Builder) {
-            $params = request()->query();
-            Arr::forget($params, 'page');
-
-            $usePaginate = (request()->has('paginate') && request('paginate')) != false;
             $isCount = request()->has('count');
 
-            if ($usePaginate) {
-                $perPage = request()->has('per-page') ? request()->input('per-page') : null;
-                $result = $data->paginate($perPage)->appends($params);
-            } elseif ($isCount){
+            if ($isCount){
                 $result = $data->count();
             } else {
                 $result = $data->get();
